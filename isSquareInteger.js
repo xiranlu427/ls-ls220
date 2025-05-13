@@ -7,7 +7,21 @@ Write a function that checks whether a given positive integer num is the result
 */
 
 function isSquareInteger(num) {
-  
+  let left = 1;
+  let right = num;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+
+    if (mid ** 2 < num) {
+      left = mid + 1;
+    } else if (mid ** 2 > num) {
+      right = mid - 1;
+    } else {
+      return true;
+    }
+  }
+  return false;
 }
 
 console.log(isSquareInteger(1) === true);
